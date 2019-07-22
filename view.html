@@ -7,13 +7,30 @@
 <script type="text/javascript" src="index.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <div id="app">
+    <p>{{name}}</p>
+    <p>{{title}}</p>
+    <div v-html="content"></div>
+    <p>{{profile}}</p>
+  </div>
 <script>
   new Darkmode().showWidget();
 </script>
 <script>
+  var app = new Vue({
+            el: "#app",
+            data: {
+                name: "",
+                title: "",
+                content: "",
+                profile: ""
+            }
+        })
 $.ajax({
     url: "https://playentry.org/api/discuss/" + id,
     crossDomain: true,
@@ -21,19 +38,14 @@ $.ajax({
     type: 'GET',
     data: "",
     success: function(res) {
-        var br = "<br>"
-        document.write("<h1>Entry Community Viewer</h1>");
-        document.write("<p>Made by <a href=\"https://playentry.org/thoratica\">thoratica</a></p>");
-        document.write("<img width=2% src=\"https://playentry.org/uploads/profile/" + res.user._id.substring(0, 2) + "/" + res.user._id.substring(2, 4) + "/avatar_" + res.user._id + ".png\">");
-        document.write("&nbsp&nbsp"+"<h3 style=\"display:inline\">"+res.user.username+"</h3>");
-        document.write("<h2><a href=\""+"https://playentry.org/ds#!/free/"+res._id+"\">"+res.title+"</a></h2>");
-        document.write("<p>"+res.content+"</p>");
-        document.write("<p>"+res.image+"</p>");
+        app.name = res.user.username
+        app.title = res.title
+        app.content = res.content
+        app.profile = "https://playentry.org/uploads/profile/" + res.user._id.substring(0, 2) + "/" + res.user._id.substring(2, 4) + "/avatar_" + res.user._id + ".png\">"
         const darkmode = new Darkmode(options);
         darkmode.showWidget();
     }
 })
-clearInterval();
 </script>
 <script>
 var options = {
