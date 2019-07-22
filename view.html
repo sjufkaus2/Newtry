@@ -13,10 +13,9 @@
 </head>
 <body>
   <div id="app">
-    <p>{{name}}</p>
-    <p>{{title}}</p>
+    <h1>{{title}}</h1>
+    <p>by {{name}}</p>
     <div v-html="content"></div>
-    <p>{{profile}}</p>
   </div>
 <script>
   new Darkmode().showWidget();
@@ -27,8 +26,7 @@
             data: {
                 name: "",
                 title: "",
-                content: "",
-                profile: ""
+                content: ""
             }
         })
 $.ajax({
@@ -41,7 +39,6 @@ $.ajax({
         app.name = res.user.username
         app.title = res.title
         app.content = res.content
-        app.profile = "https://playentry.org/uploads/profile/" + res.user._id.substring(0, 2) + "/" + res.user._id.substring(2, 4) + "/avatar_" + res.user._id + ".png\">"
         const darkmode = new Darkmode(options);
         darkmode.showWidget();
     }
