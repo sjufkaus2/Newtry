@@ -14,24 +14,6 @@
   new Darkmode().showWidget();
 </script>
 <script>
-var discuss = new Vue({
-    data: {
-        title: "",
-        author: "",
-        des: "",
-        imgs: [],
-        profile: "",
-        or: "",
-        see: false,
-        imgb: true
-    }
-})
-var comment = new Vue({
-    data: {
-        comments: [],
-        see: false
-    }
-})
 $.ajax({
     url: "https://playentry.org/api/discuss/" + id,
     crossDomain: true,
