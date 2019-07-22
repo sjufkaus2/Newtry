@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>EntCommu</title>
+<script type="text/javascript" src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script>
+</head>
+<body>
+<script>
+  new Darkmode().showWidget();
+</script>
+<script>
+var discuss = new Vue({
+    data: {
+        title: "",
+        author: "",
+        des: "",
+        imgs: [],
+        profile: "",
+        or: "",
+        see: false,
+        imgb: true
+    }
+})
+var comment = new Vue({
+    data: {
+        comments: [],
+        see: false
+    }
+})
+$.ajax({
+    url: "https://playentry.org/api/discuss/" + id,
+    crossDomain: true,
+    dataType: "jsonp",
+    type: 'GET',
+    data: "",
+    success: function(res) {
+        var br = "<br>"
+        document.write("<h1>Entry Community Viewer</h1>");
+        document.write("<p>Made by <a href=\"https://playentry.org/thoratica\">thoratica</a></p>");
+        document.write("<img width=2% src=\"https://playentry.org/uploads/profile/" + res.user._id.substring(0, 2) + "/" + res.user._id.substring(2, 4) + "/avatar_" + res.user._id + ".png\">");
+        document.write("&nbsp&nbsp"+"<h3 style=\"display:inline\">"+res.user.username+"</h3>");
+        document.write("<h2><a href=\""+"https://playentry.org/ds#!/free/"+res._id+"\">"+res.title+"</a></h2>");
+        document.write("<p>"+res.content+"</p>");
+        const darkmode = new Darkmode(options);
+        darkmode.showWidget();
+    }
+})
+clearInterval();
+</script>
+<script>
+var options = {
+  bottom: '32px',
+  right: '32px',
+  left: 'unset',
+  time: 'unset',
+  mixColor: '#fff',
+  backgroundColor: '#fff',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: false
+}
+</script>
+</body>
+</html>
