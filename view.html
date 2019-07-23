@@ -1,63 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>EntCommu</title>
-<script type="text/javascript" src="index.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-  <div id="app">
-    <h1>{{title}}</h1>
-    <p>by {{name}}</p>
-    <div v-html="content"></div>
-  </div>
-<script>
-  new Darkmode().showWidget();
-</script>
-<script>
-  var app = new Vue({
-            el: "#app",
-            data: {
-                name: "",
-                title: "",
-                content: ""
-            }
-        })
-$.ajax({
-    url: "https://playentry.org/api/discuss/" + id,
-    crossDomain: true,
-    dataType: "jsonp",
-    type: 'GET',
-    data: "",
-    success: function(res) {
-        app.name = res.user.username
-        app.title = res.title
-        app.content = res.content
-        const darkmode = new Darkmode(options);
-        darkmode.showWidget();
-    }
-})
-</script>
-<script>
-var options = {
-  bottom: '32px',
-  right: '32px',
-  left: 'unset',
-  time: 'unset',
-  mixColor: '#fff',
-  backgroundColor: '#fff',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: false
-}
-</script>
-</body>
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Entry Community Viewer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+						<h1>Entry Community Viewer</h1>
+						<p>Made by <a href="https://playentry.org/thoratica">thoratica</a></p>
+				</div>
+			</section>
+		<!-- Content -->
+			<section id="one" class="main style1">
+				<div class="container">
+					<div class="row gtr-150">
+						<div id="app">
+							<header class="major">
+								<div>
+									<h2>{{title}}</h2>
+								</div>
+									<p>by {{name}}</p>
+							</header>
+							<div v-html="content"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="three" class="main style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Entry Community Viewer</h2>
+					</header>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
+							<h3>편리하다</h3>
+							<p>게시글의 ID만 붙여넣으면 되기 때문에 편리합니다.</p>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
+							<h3>빠르다</h3>
+							<p>글을 불러오는 속도가 엔트리 커뮤니티만큼, 또는 엔트리 커뮤니티보다 빠릅니다.</p>
+						</div>
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+							<h3>가볍다</h3>
+							<p>뷰어로서 꼭 필요한 기능만 담아 가볍습니다.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="https://github.com/thoratica/EntryCommuViewer" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<ul class="copyright darkmode-ignore">
+					<li>&copy; 2019 <a href="https://playentry.org/thoratica">thoratica</a>.</li><li>Design: <a href="https://playentry.org/thoratica">thoratica</a>, <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+			<script src="https://unpkg.com/vue"></script>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script>		
+			<script>
+				new Darkmode().showWidget();
+			</script>
+			<script>
+					var app = new Vue({
+							  el: "#app",
+							  data: {
+								  name: "",
+								  title: "",
+								  content: "",
+        						  imgs:[],
+								  link: "",
+								  see:false,
+        						  imgb:true
+							  }
+						  })
+				  $.ajax({
+					  url: "https://playentry.org/api/discuss/" + id,
+					  crossDomain: true,
+					  dataType: "jsonp",
+					  type: 'GET',
+					  data: "",
+					  success: function(res) {
+						  app.name = res.user.username
+						  app.title = res.title
+						  app.content = res.content
+						  app.link = "https://playentry.org/ds#!/free/"+res._id
+						  for (var i = 0; i < res.images.length; i++) {
+            				app.imgb = false
+            				app.imgs.push("https://playentry.org"+res.images[i].imageUrl)
+          				}
+						  app.see = true
+					  }
+				  })
+				  </script>
+				  <script>
+				  const darkmode = new Darkmode();
+
+				  darkmode.showWidget();
+				  </script>
+
+	</body>
 </html>
