@@ -8,8 +8,8 @@
 엔트리 커뮤니티 게시글을 볼 수 있는 뷰어입니다.
 
 ## 구현 방법
-EntCommu는 엔트리 API를 사용하여 게시글을 불러옵니다.
-API들은 https://api.thoratica.net 에 정리되어 있습니다.
+EntCommu는 엔트리 API를 사용하여 게시글을 불러옵니다.  
+API는 https://api.thoratica.net 에 정리되어 있습니다.
 
 ## TODO
 
