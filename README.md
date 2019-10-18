@@ -5,7 +5,7 @@
 ![스타](https://img.shields.io/github/stars/thoratica/EntCommu?label=%EC%8A%A4%ED%83%80&style=flat-square)
 
 ## About
-엔트리 커뮤니티 게시글을 볼 수 있는 뷰어입니다.
+엔트리 커뮤니티 게시글 뷰어입니다.
 
 ## 구현 방법
 EntCommu는 엔트리 API를 사용하여 게시글을 불러옵니다.  
