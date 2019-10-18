@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EntCommu</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 </head>
 <body>
-    <script>
-        window.location.href = 'list.html?page=1';
-    </script>
+    <div class="ui menu"></div>
+    <div class="ui menu fixed">
+        <div class="ui container">
+            <div class="header item"><a href="/">EntCommu</a></div>
+            <div id="free"><div class="item"><a href="/?page=1&category=free">자유게시판</a></div></div>
+            <div id="qna"><div class="item"><a href="/?page=1&category=qna">묻고답하기</a></div></div>
+            <div id="tips"><div class="item"><a href="/?page=1&category=tips">노하우&팁</a></div></div>
+            <div id="notice"><div class="item"><a href="/?page=1&category=notice">공지사항</a></div></div>
+        </div>
+    </div>
+    <div class="ui container">
+        <table class="ui right aligned table">
+            <thead>
+                <tr>
+                    <th class="left aligned">글 번호</th>
+                    <th class="left aligned">제목</th>
+                    <th class="left aligned">작성자</th>
+                    <th class="left aligned">작성일</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+        </table>
+        <div id="back"></div>
+        <div id="next"></div>
+        <br>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
