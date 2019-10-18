@@ -1,6 +1,6 @@
 # EntCommu
 ![크기](https://img.shields.io/github/repo-size/thoratica/EntCommu?label=%ED%81%AC%EA%B8%B0&style=flat-square)
-![라이센스](https://img.shields.io/github/license/thoratica/EntTube?label=%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4&style=flat-square)
+![라이센스](https://img.shields.io/github/license/thoratica/EntCommu?label=%EB%9D%BC%EC%9D%B4%EC%84%BC%EC%8A%A4&style=flat-square)
 ![포크](https://img.shields.io/github/forks/thoratica/EntCommu?label=%ED%8F%AC%ED%81%AC&style=flat-square)
 ![스타](https://img.shields.io/github/stars/thoratica/EntCommu?label=%EC%8A%A4%ED%83%80&style=flat-square)
 
