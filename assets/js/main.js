@@ -24,44 +24,25 @@ $.ajax({
 var back = Number(page) - 1
 var next = Number(page) + 1
 
-
-
+if (Number(page) < 2) {
+  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
+}
+if (Number(page) > 1) {
+  $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
+}
 
 if (category == "") {
   window.location.href = "/?page=1&category=free"
 }
 if (category == "free") {
   $("#free").html("<div class=\"active item\"><a href=\"/\">자유게시판</a></div>");
-
-
-
-  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
-
-  if (Number(page) > 1) {
-      $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
-  }
 }
 if (category == "qna") {
   $("#qna").html("<div class=\"active item\"><a href=\"/\">묻고답하기</a></div>");
-  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
-
-  if (Number(page) > 1) {
-      $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
-  }
 }
 if (category == "tips") {
   $("#tips").html("<div class=\"active item\"><a href=\"/\">노하우&팁</a></div>");
-  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
-
-  if (Number(page) > 1) {
-      $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
-  }
 }
 if (category == "notice") {
   $("#notice").html("<div class=\"active item\"><a href=\"/\">공지사항</a></div>");
-  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
-
-  if (Number(page) > 1) {
-      $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
-  }
 }
