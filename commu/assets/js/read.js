@@ -27,16 +27,16 @@ $.ajax({
 
 if (category == "") {
     window.location.href = "/?page=1&category=free"
-}
-if (category == "free") {
-    $("#free").html("<div class=\"active item\"><a href=\"/\">자유게시판</a></div>");
-}
-if (category == "qna") {
-    $("#qna").html("<div class=\"active item\"><a href=\"/\">묻고답하기</a></div>");
-}
-if (category == "tips") {
-    $("#tips").html("<div class=\"active item\"><a href=\"/\">노하우&팁</a></div>");
-}
-if (category == "notice") {
-    $("#notice").html("<div class=\"active item\"><a href=\"/\">공지사항</a></div>");
-}
+  }
+  if (category == "free") {
+    $("#free").html("<div class=\"active item\"><a href=\"/commu\">엔이</a></div>");
+  }
+  if (category == "qna") {
+    $("#qna").html("<div class=\"active item\"><a href=\"/commu\">묻답</a></div>");
+  }
+  if (category == "tips") {
+    $("#tips").html("<div class=\"active item\"><a href=\"/commu\">노팁</a></div>");
+  }
+  if (category == "notice") {
+    $("#notice").html("<div class=\"active item\"><a href=\"/commu\">공지</a></div>");
+  }

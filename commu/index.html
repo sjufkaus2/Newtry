@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Newtry</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://kit.fontawesome.com/63d6aec019.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="ui menu"></div>
+    <div class="ui menu fixed">
+            <div class="ui container">
+                <div class="header item"><a href="/">Newtry</a></div>
+                <div id="project">
+                    <div class="item"><a href="/project">작품</a></div>
+                </div>
+                <div id="user">
+                    <div class="item"><a href="/user">유저</a></div>
+                </div>
+                <div id="free">
+                    <div class="item"><a href="/commu/?page=1&category=free">엔이</a></div>
+                </div>
+                <div id="qna">
+                    <div class="item"><a href="/commu/?page=1&category=qna">묻답</a></div>
+                </div>
+                <div id="tips">
+                    <div class="item"><a href="/commu/?page=1&category=tips">노팁</a></div>
+                </div>
+                <div id="notice">
+                    <div class="item"><a href="/commu/?page=1&category=notice">공지</a></div>
+                </div>
+            </div>
+        </div>
+    <div class="ui container">
+        <table class="ui right aligned table">
+            <thead>
+                <tr>
+                    <th class="left aligned">글 번호</th>
+                    <th class="left aligned">제목</th>
+                    <th class="left aligned">작성자</th>
+                    <th class="left aligned">작성일</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+        </table>
+        <div id="back"></div>
+        <div id="next"></div>
+        <br>
+    </div>
+    <br>
+    <div class="ui inverted vertical footer segment">
+            <div class="ui center aligned container">
+                <img src="/assets/img/logo.png" alt="logo" width="250rem">
+                <p>© thoratica.</p>
+                <a href="https://github.com/thoratica" style="color: white;"><i class="fab fa-github fa-2x"></i></a>
+            </div>
+          </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
