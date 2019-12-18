@@ -16,7 +16,7 @@ $.ajax({
   data: "",
   success: function(res) {
       for (var i = 0; i < 500; i++) {
-          $("#table").append("<tr><td class=\"left aligned\">" + res.data[i].number + "</td><td class=\"left aligned\"><a href=\"" + "/read/?id=" + res.data[i]._id + "&category=" + category + "\">" + res.data[i].title + "</a></td><td class=\"left aligned\">" + res.data[i].owner + "</td><td class=\"left aligned\">" + res.data[i].created.substring(0, 10) + "</td></tr>");
+          $("#table").append("<tr><td class=\"left aligned\">" + res.data[i].number + "</td><td class=\"left aligned\"><a href=\"" + "/commu/read/?id=" + res.data[i]._id + "&category=" + category + "\">" + res.data[i].title + "</a></td><td class=\"left aligned\">" + res.data[i].owner + "</td><td class=\"left aligned\">" + res.data[i].created.substring(0, 10) + "</td></tr>");
       }
   }
 })
