@@ -7,15 +7,22 @@ function getParameterByName(name) {
 
 var username = getParameterByName('user')
 
-function searchUser() {
-  $.ajax({
-    url: "https://playentry.org/api/getUserByUsername/" + username,
-    crossDomain: true,
-    dataType: "jsonp",
-    type: 'GET',
-    data: "",
-    success: function(res) {
-      console.log(res.created)
-    }
-  })
-}
+$("#userinfo").append(`
+    ${username}
+`);
+
+$.ajax({
+  url: "https://playentry.org/api/getUserByUsername/" + username,
+  crossDomain: true,
+  dataType: "jsonp",
+  type: 'GET',
+  data: "",
+  success: function(res) {
+      $("#container").append(`
+        <iframe class="ui container br" src="https://ent2.ml/entstat/?${res.username}" width="100%" height="240px" frameborder="0">
+    `);
+    $("#userdesc").append(`
+        ${res.description}
+    `);
+  }
+})

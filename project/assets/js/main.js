@@ -6,26 +6,40 @@ function getParameterByName(name) {
 }
 
 var page = getParameterByName('page')
-var category = getParameterByName('category')
 
-var total = $.ajax({
-  url: "https://playentry.org/api/project/count/total?noCache=1573480455830",
-  crossDomain: true,
-  dataType: "jsonp",
-  type: 'GET',
-  data: ""
-})
 
 $.ajax({
-  url: "https://playentry.org/api/project/find",
+  url: "https://playentry.org/api/project/find?page=\"" + page + "\"&rows=12",
   crossDomain: true,
   dataType: "jsonp",
   type: 'GET',
   data: "",
   success: function(res) {
-    console.log(total.responseJSON.count)
-    for( var i ; i <= total.responseJSON.count; ++i){
-    $("#projects").append("<div class=\"ui card br\"><div class=\"image\"><img class=\"br-top\" src=\"https://playentry.org/" + res[i].project.thumb + "\"></div><div class=\"content\"><a href=\"https://playentry.org/" + res[i].project.user.username + "/" + res[i].project._id + "\" class=\"header\">" + res[i].project.name + "</a><div class=\"meta\"><span class=\"date\">" + res[i].project.user.username + "</span></div></div></div>");
+    for( var i = 0 ; i < 12; i++ ){
+    $("#projects").append(`
+    <div class="ui card">
+        <div class="image">
+            <img src="https://playentry.org/${res.data[i].thumb}">
+        </div>
+        <div class="content">
+          <a class="header" href="https://playentry.org/${res.data[i].user.username}/${res.data[i]._id}">${res.data[i].name}</a>
+          <div class="meta">
+            <a href="https://playentry.org/${res.data[i].user.username}">${res.data[i].user.username}</a>
+           </div>
+        </div>
+        <div class="extra content">
+           <a>
+            <i class="like icon"></i>
+            ${res.data[i].likeCnt}
+          </a>
+          &nbsp;&nbsp;&nbsp;
+          <a>
+           <i class="comment icon"></i>
+           ${res.data[i].comment}
+          </a>
+       </div>
+     </div>
+    `);
     }
   }
 })
@@ -34,12 +48,8 @@ var back = Number(page) - 1
 var next = Number(page) + 1
 
 if (Number(page) < 2) {
-  $("#next").html("<a id=\"next\" href=\"?page=" + next + "?category=" + category + "\">다음 페이지</a>");
+  $("#next").html("<a id=\"next\" href=\"?page=" + next + "\">다음 페이지</a>");
 }
 if (Number(page) > 1) {
   $("#back").html("<a id=\"back\" href=\"?page=" + back + "\">이전 페이지</a>");
-}
-
-if (category == "free") {
-  $("#free").html("<div class=\"active item\"><a href=\"\">엔이</a></div>");
 }
